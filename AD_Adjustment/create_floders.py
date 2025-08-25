@@ -1,4 +1,5 @@
 import os
+
 import xlrd
 
 
@@ -7,7 +8,7 @@ def get_floders_name(filename, sheet_index):
     file = xlrd.open_workbook(filename)
     sheet = file.sheet_by_index(sheet_index)
     rows = sheet.nrows
-    floder_names = sheet.col_values(0, 0, rows + 1)
+    floder_names = sheet.col_values(0, 1, rows + 1)
 
     return floder_names
 
@@ -27,9 +28,9 @@ def create_floder(floder_names, path):
             os.mkdir(full_path)
 
 
-if __name__ == '__main__':
-    filename = r'C:\Users\Administrator\Desktop\关键词12.31.xls'
+if __name__ == "__main__":
+    filename = r"C:\Users\Administrator\Desktop\关键词12.31.xls"
     sheet_index = 6
-    path = r'D:\shopee月数据\cj'
+    path = r"D:\东南亚月数据\TEMU"
     floder_names = get_floders_name(filename, sheet_index)
     create_floder(floder_names, path)
