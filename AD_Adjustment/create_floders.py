@@ -8,7 +8,7 @@ def get_floders_name(filename, sheet_index):
     file = xlrd.open_workbook(filename)
     sheet = file.sheet_by_index(sheet_index)
     rows = sheet.nrows
-    floder_names = sheet.col_values(0, 1, rows + 1)
+    floder_names = sheet.col_values(0, 0, rows + 1)
 
     return floder_names
 
